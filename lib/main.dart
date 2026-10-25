@@ -83,6 +83,36 @@ class Latihan1 extends StatelessWidget {
   }
 }
 
+class KartuMahasiswaWidget extend StatelessWidget {
+  final String nama;
+  final String nim;
+  final string prodi;
+
+  const KartuMahasiswaWidget({
+    super.key,
+    required this.nama,
+    required this.nim,
+    required this.prodi,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding (
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    child: Card(
+      elevation: 4,
+      child: ListTile(
+        leading: const Icon(Icons.person),
+        title: Text(nama),
+        subtitle: Text('NIM $nim\n$prodi'),
+        isThereeLine: true,
+        trailing: const Icons(Icons.info),
+        ),
+      ),
+    );
+  }
+}
+
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
