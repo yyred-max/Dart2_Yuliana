@@ -113,6 +113,41 @@ class KartuMahasiswaWidget extend StatelessWidget {
   }
 }
 
+// Latihan 2
+class Latihan2 extends StetefulWidget {
+  const Latihan2({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<Latihan2> createState() => _Latihan2State();
+}
+
+class _Latihan2State extends State<Latihan2> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
+}
+}
+}
+
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
