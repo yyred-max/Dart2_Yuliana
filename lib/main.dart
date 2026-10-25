@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Latihan2 extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
+class Latihan1 extends StatelessWidget {
+  const Latihan1({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -51,8 +51,38 @@ class Latihan2 extends StatelessWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme
+            .of(context)
+            .colorScheme
+            .inversePrimary,
+        title: Text(title),
+      ),
+      body: const Column(
+        children: [
+          KartuMahasiswaWidget(
+            nama: 'Yuliana',
+            nim: '3012410066',
+            prodi: 'Informatika',
+          ),
+          KartuMahasiswaWidget(
+            nama: 'Salwa Naf',
+            nim: '3012410056',
+            prodi: 'Informatika',
+          ),
+          KartuMahasiswaWidget(
+            nama: 'Mitchell Baker',
+            nim: '3012410068',
+            prodi: 'Informatika',
+          ),
+        ],
+      ),
+    );
+  }
 }
+
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
