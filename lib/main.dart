@@ -83,10 +83,10 @@ class Latihan1 extends StatelessWidget {
   }
 }
 
-class KartuMahasiswaWidget extend StatelessWidget {
+class KartuMahasiswaWidget extends StatelessWidget {
   final String nama;
   final String nim;
-  final string prodi;
+  final String prodi;
 
   const KartuMahasiswaWidget({
     super.key,
@@ -105,8 +105,8 @@ class KartuMahasiswaWidget extend StatelessWidget {
         leading: const Icon(Icons.person),
         title: Text(nama),
         subtitle: Text('NIM $nim\n$prodi'),
-        isThereeLine: true,
-        trailing: const Icons(Icons.info),
+        isThreeLine: true,
+        trailing: const Icon(Icons.info),
         ),
       ),
     );
@@ -114,7 +114,7 @@ class KartuMahasiswaWidget extend StatelessWidget {
 }
 
 // Latihan 2
-class Latihan2 extends StetefulWidget {
+class Latihan2 extends StatefulWidget {
   const Latihan2({super.key, required this.title});
 
   final String title;
@@ -148,11 +148,13 @@ class _Latihan2State extends State<Latihan2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorSheme.inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
           Text(
             '$_counter',
             style: Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -170,33 +172,27 @@ class _Latihan2State extends State<Latihan2> {
               ),
               const SizedBox(width: 12),
               ElevatedButton(
+                onPressed: _resetCounter,
+                child: const Text('Reset'),
+              ),
+              const SizedBox(width: 12),
+              ElevatedButton(
                 onPressed: _incrementCounter,
                 child: const Icon(Icons.add),
               ),
             ],
           ),
-          ],
-          ),
+        ],
         ),
       ),
     );
   }
 }
 
+class Latihan3 extends StatelessWidget {
+  const Latihan3({super.key, required this.title});
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -214,9 +210,10 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(title),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -233,21 +230,53 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: .center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const CircleAvatar(
+              radius: 48,
+              child: Icon(Icons.person, size: 48),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Rani Putri',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
+            const Text('Informatika . UISI'),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                KotakIkonWidget(icon: Icons.phone),
+                KotakIkonWidget(icon: Icons.email),
+                KotakIkonWidget(icon: Icons.location_on),
+              ],
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+    );
+  }
+}
+
+class KotakIkonWidget extends StatelessWidget {
+  final IconData icon;
+
+  const KotakIkonWidget({super.key, required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 64,
+      height: 64,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Colors.teal.shade50,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.teal, width: 2),
       ),
+      child: Icon(icon, color: Colors.teal),
     );
   }
 }
