@@ -144,8 +144,43 @@ class _Latihan2State extends State<Latihan2> {
     });
   }
 
-}
-}
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorSheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          Text(
+            '$_counter',
+            style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                  fontSize: 64,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+          const SizedBox(height: 24),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: _decrementCounter,
+                child: const Icon(Icons.remove),
+              ),
+              const SizedBox(width: 12),
+              ElevatedButton(
+                onPressed: _incrementCounter,
+                child: const Icon(Icons.add),
+              ),
+            ],
+          ),
+          ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 
