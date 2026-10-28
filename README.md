@@ -6,4 +6,10 @@ Proyek ini dibuat untuk memenuhi Tugas 2 mata kuliah Pemrograman Mobile mengguna
 
 Berikut adalah tampilan aplikasi saat dijalankan:
 
-![Output Latihan 1](assets/Dart2.png)
+![Output sebelum perubahan](assets/Dart2.png)
+
+![Output Latihan1](assets/Latihan1.png)
+
+![Output Latihan2](assets/Latihan2.png)
+
+![Output Latihan3](assets/Latihan3.png)
